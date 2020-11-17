@@ -13,6 +13,8 @@ para dizer se a ação está ativa ou não, sendo obrigatório informar todos
 os campos
 
  • Uma ação pode ter várias execuções
+ 
+ 
  • Criar testes de integração para os mapeamentos
 Com as ações registradas podemos executar as mesmas, então crie um novo
 controller de execuções que deverá listar todas as realizadas, recuperar pelo ID
@@ -22,8 +24,12 @@ e cadastrar uma nova execução.
 # Regras:
  • A execução deve ter um id incremental, a ação que a execução está
 vinculada e uma data com horário de quando ocorreu aquela execução
+
+
  • Uma execução só pode ser cadastrada se a ação que está vinculada se
 encontra ativa, caso contrário não poderá ocorrer aquela execução
+
+
  • Criar testes de integração para os mapeamentos e unitário para a regra
 da execução de uma ação
 Lembre-se, caso ocorra algum problema como uma exception lançada a
