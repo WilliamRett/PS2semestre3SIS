@@ -1,4 +1,4 @@
-# PS2semestre3SIS
+# PS 2 semestre - 3SIS
 Precisamos que CHAPPiE saiba o que fazer, para isso precisamos ter definido
 quais ações ele pode realizar e também gerenciar essas ações, além é claro de
 criar execuções dessas ações que ele irá realizar. Para isso desenvolva uma
