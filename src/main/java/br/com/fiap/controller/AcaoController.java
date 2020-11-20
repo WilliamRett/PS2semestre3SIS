@@ -32,7 +32,7 @@ public class AcaoController {
 	@GetMapping("/acao/{id}")
 	public Acao buscarAcao(@PathVariable(value="id") long id){
 		return acaoRepository.findById(id);
-	}
+	} 
 	
 	//Create
 	@PostMapping("/acao")
