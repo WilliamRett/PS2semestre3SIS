@@ -2,10 +2,9 @@ package br.com.fiap.controller;
 
 import java.net.URI;
 import java.util.List;
-import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,42 +15,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.fiap.business.AcaoBusiness;
-import br.com.fiap.model.AcaoModel;
+import br.com.fiap.business.ExecucaoBusiness;
+import br.com.fiap.model.ExecucaoModel;
 
 @RestController
-@RequestMapping("/acao")
-public class AcaoController {
-
+@RequestMapping("/execucao")
+public class ExecucaoController {
+	
 	@Autowired
-	AcaoBusiness acaoBusiness;
+	ExecucaoBusiness execucaoBuniness;
 		
 	// Busca
 		@GetMapping("/lista")
-		public ResponseEntity<List<AcaoModel>> findAll() {	
+		public ResponseEntity<List<ExecucaoModel>> findAll() {	
 			
-			List<AcaoModel> categorias = acaoBusiness.findAll();	
+			List<ExecucaoModel> categorias = execucaoBuniness.findAll();	
 			return ResponseEntity.ok(categorias);
 	}
 	
 		@GetMapping("/buscar/{id}")
-		public ResponseEntity<AcaoModel> findById(@PathVariable("id") long id) {
+		public ResponseEntity<ExecucaoModel> findById(@PathVariable("id") long id) {
 
-			AcaoModel acaoModel = acaoBusiness.findById(id);	
-			return ResponseEntity.ok(acaoModel);
+			ExecucaoModel execucaoModel = execucaoBuniness.findById(id);	
+			return ResponseEntity.ok(execucaoModel);
 		}
 			
 		
 		// Cadastro
 		@SuppressWarnings("rawtypes")
 		@PostMapping("/criar")
-		public ResponseEntity save(@RequestBody @Valid AcaoModel acaoModel) {
+		public ResponseEntity save(@RequestBody @Valid ExecucaoModel execucaoModel) {
 			
-			acaoBusiness.save(acaoModel);
+			execucaoBuniness.save(execucaoModel);
 			
 			URI location = ServletUriComponentsBuilder
 	                .fromCurrentRequest().path("/{id}")
-	                .buildAndExpand(acaoModel.getId()).toUri();
+	                .buildAndExpand(execucaoModel.getId()).toUri();
 			
 			return ResponseEntity.created(location).build();
 			
@@ -59,11 +58,11 @@ public class AcaoController {
 		
 		// Edicao
 		@PutMapping("editar/{id}")
-		public ResponseEntity update(@PathVariable("id") long id, @RequestBody @Valid AcaoModel acaoModel) {
-			acaoBusiness.findById(id);
+		public ResponseEntity update(@PathVariable("id") long id, @RequestBody @Valid ExecucaoModel execucaoModel) {
+			execucaoBuniness.findById(id);
 			
-			acaoModel.setId(id);
-			acaoBusiness.save(acaoModel);
+			execucaoModel.setId(id);
+			execucaoBuniness.save(execucaoModel);
 		
 			return ResponseEntity.ok().build();	
 		}
@@ -72,7 +71,7 @@ public class AcaoController {
 		@DeleteMapping("delete/{id}")
 		public ResponseEntity deleteById(@PathVariable("id") long id) {
 			
-			acaoBusiness.deleteById(id);
+			execucaoBuniness.deleteById(id);
 			return ResponseEntity.noContent().build();
 		}
 	

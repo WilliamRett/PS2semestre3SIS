@@ -2,9 +2,8 @@ package br.com.fiap.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.fiap.model.Acao;
+import br.com.fiap.model.AcaoModel;
 
-public interface AcaoRepository extends JpaRepository<Acao , Long> {
+public interface AcaoRepository extends JpaRepository<AcaoModel , Long> {
 
-	Acao findById(long id);
 }

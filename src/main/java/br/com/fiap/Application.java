@@ -1,4 +1,4 @@
-package br.com.fiap.SISPS2;
+package br.com.fiap;
 
 
 import org.springframework.boot.SpringApplication;
